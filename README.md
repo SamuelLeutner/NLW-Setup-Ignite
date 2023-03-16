@@ -20,20 +20,6 @@ Localização: `nlw-setup-ignite/server`;
 
 Vamos desenvolver uma API RESTful, usando `fastify`, por ser similar ao `express`, porém tem sido mais performático.
 
-## Instalações necesárias 🔌
-
-- **npm i fastify**
-- **npm i typescript -D**
-- **npx tsc --init** (é um alias para: npx typescript --init)
-- **npm i tsx -D** (Essa biblioteca permite executar um arquivo do Node com TS sem precisar fazer qualquer tipo de conversão do arquivo)
-  - Para verficar, use o comando **npx tsx src/server.ts**, ou melhor crie um script no `package.json`, use a flag `watch` para que cada alteração seja apresentada em tempo real;
-
-```
-"scripts": {
-    "dev": "tsx watch src/server.ts"
-  }
-```
-
 ### Banco de Dados
 
 Como banco de dados, vamos usar um `ORM`, por ser mais rápido no momento de desenvolvimento, o ORM escolhido foi `Prisma`.
@@ -173,118 +159,6 @@ Sempre que usamos `:` dentro de uma rota, estamos falando de parâmentros de rot
 # Web
 
 Localização: `nlw-setup-ignite/web`;
-
-## Instalações necessárias 🔌
-
-```
-npm create vite@latest
-```
-
-- web
-- React
-- TypeScript
-- npm i
-
-- **Componentes**: Tudo o que queremos reaproveitar/isolar na aplicação;
-- **propriedades**: É uma informação enviada para modificar um componente, seja visual ou comportamentalmente;
-
-## Estilização
-
-Vamos usar o `Tailwind CSS`
-
-- npm i tailwindcss -D
-- npm i postcss -D
-- npm i autoprefixer -D
-
-Vamos a alguns detalhes importante para salvar o projeto.
-
-- Criar Arquivo `tailwind.config.cjs`, com o seguinte script:
-
-  ```
-  /** @type {import('tailwindcss').Config} */
-  module.exports = {
-  content: [
-    './src/**/*.tsx',
-    './index.html'
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-  }
-  ```
-
-- Criar Arquivo `postcss.cjs`, com o seguinte script:
-
-  ```
-  module.exports = {
-    plugins: {
-      tailwindcss: {},
-      autoprefixer: {},
-    },
-  }
-  ```
-
-- Dentro de src, criar pasta `styles`, com arquivo `global.css`, com o seguinte script:
-
-  ```
-  @tailwind base;
-  @tailwind utilities;
-  @tailwind components;
-
-  ```
-
-Pronto, configurações iniciais prontas!
-
-### Ícones
-
-Vamos usar o `phosphor icons`
-
-- **npm i phosphor-react**
-
-### Estilizando campo de datas
-
-Vamos instalar o `day.js` para trabalhar com a função `generateDatesFromYearBegnning()` para gerar todas as datas desde o início do ano de maneira automatica
-
-- **npm i dayjs**
-
-### Modal de criação de hábitos
-
-Vamos fazer a instalção do `radix-ui`, segue o comando para terminal:
-
-- **npm i @radix-ui/react-dialog**
-- **npm i @radix-ui/react-popover**
-- **npm i @radix-ui/react-checkbox**
-
-**Para barra de progresso**: instalação do `clsx` para trabalhar com classes condicionais:
-
-- **npm i clsx**
-
-## Conectando a API
-
-No próprio JS, nós temos o fetch-API (que é uma API nativa dos browsers, que permite fazer chamadas HTTP), porém, vamos usar o axios por ser mais minimalista em quantidade de código:
-
-- **npm i axios**
-
-Dentro de `src/lib`, criar arquivo `axios.ts` com este script:
-
-```TS
-import axios from "axios";
-
-export const api = axios.create({
-  baseURL: 'http://localhost:3333'
-})
-```
-
-## Finalizando o WEB
-
-- Toggle na conexão com API;
-- Estilizando a experiência da aplicação com transições e focus;
-- Levando o projeto para o próximo nível:
-  - Ter autenticação (por usuário), dicas: Firebase, Auth0;
-  - Ter notificações push;
-  - Ter service workers;
-  - Ter um perfil público com gráfico de resumo;
 
 # Mobile
 
